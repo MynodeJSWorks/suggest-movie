@@ -4,6 +4,9 @@ const logger = require("./middlewares/logger");
 const errorHandler = require("./middlewares/errorHandler");
 
 const server = express();
+const cors = require("cors");
+
+server.use(cors());
 server.use(express.json());
 server.use(logger);
 server.use('/suggestions', suggestionsRouter);
