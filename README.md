@@ -12,7 +12,7 @@
     <a href="https://firebase.google.com/">Authentication</a>
   </p>
   <h5>
-    You can try with this credientals:
+    You can try with these credientals:
   </h5>
   <h4>
     Mail: example@mail.com
