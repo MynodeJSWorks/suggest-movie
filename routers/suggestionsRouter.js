@@ -58,18 +58,20 @@ router.put('/:id', (req, res, next) => {
             statusCode: 400,
             errorMessage: "Invalid suggestion"
         });
+    } else {
+        updateSuggestion(id, suggestion).then(updatedSuggestion => {
+            res.status(200).send(`Suggestion modified with id: ${id}`);
+        }
+        ).catch(err => {
+            next({
+                statusCode: 500,
+                errorMessage: "Error updating suggestion"
+            });
+        }
+        );
     }
 
-    updateSuggestion(id, suggestion).then(updatedSuggestion => {
-        res.status(200).send(`Suggestion modified with id: ${id}`);
-    }
-    ).catch(err => {
-        next({
-            statusCode: 500,
-            errorMessage: "Error updating suggestion"
-        });
-    }
-    );
+
 });
 
 router.delete('/:id', (req, res, next) => {
